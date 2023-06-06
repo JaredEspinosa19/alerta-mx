@@ -1,0 +1,110 @@
+:root {
+  --first-color: rgb(0, 191, 178);
+  --first-alpha-color: rgba(0, 189, 176, 0.50);
+
+  --second-color: rgb(26, 83, 99);
+  --second-alpha-color: rgba(26, 83, 99, 0.75);
+
+  --third-color: rgb(2, 128, 144);
+  --third-alpha-color: rgba(2, 128, 144, 0.50);
+
+  --link-color: rgb(240, 243, 189);
+  --link-alpha-color: rgb(240, 243, 189, 0.75);
+
+  --suplement-color: rgb(198, 65, 145);
+  --suplement-alpha-color: rgba(198, 65, 145, 0.50);
+}
+
+/* Formulario */
+
+.bg-gray{
+  height: 3rem ;
+}
+
+.bg-gray:focus{
+  border: #00bfb2cf;
+  box-shadow: 0 0 0 0.2rem var(--first-alpha-color);
+}
+
+form button:disabled {
+  height: 3rem ;
+  background-color: var(--first-alpha-color) !important;
+}
+
+form button:active {
+  background-color: var(--third-color) !important;
+  border: var(--third-color);
+  box-shadow: 0 0 0 0.2rem var(--third-alpha-color) !important;
+}
+
+/* ################## Formulario Publicar ############# */
+.needs-validation input:focus, 
+.needs-validation select:focus,
+.needs-validation textarea:focus {
+  border: #00bfb2cf;
+  box-shadow: 0 0 0 0.2rem var(--first-alpha-color);
+}
+
+.unvalidated {
+  color: var(--suplement-color);
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.form-unvalidated {
+  border: var(--suplement-color);
+  box-shadow: 0 0 0 0.2rem var(--suplement-color);
+}
+
+.form-unvalidated:focus {
+  border: var(--suplement-color);
+  box-shadow: 0 0 0 0.2rem var(--suplement-alpha-color);
+}
+
+/* Modal */
+.ReactModalPortal > div{
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: opacity .2s ease-in-out;
+  z-index: 999;
+}
+
+.modal-fondo {
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: fixed;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  height: 60%;
+  background: white;
+  border-radius: 5px;
+  color: rgb(51, 51, 51);
+  display: inline;
+  max-height: 700px;
+  max-width: 460px;
+  outline: none;
+  padding: 1.5rem;
+  overflow: auto;
+  word-break: break-all;
+}
+
+

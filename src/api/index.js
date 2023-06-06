@@ -1,0 +1,1 @@
+export {default as alertaMXApi} from './alertaMXApi';
