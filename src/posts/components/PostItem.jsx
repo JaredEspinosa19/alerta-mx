@@ -1,5 +1,7 @@
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePostsStore, useUiStore } from '../../hooks';
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 export const PostItem = (post) => {
 
@@ -10,44 +12,53 @@ export const PostItem = (post) => {
     startSetActiveHomePost(post);
   }
 
-
   return (
     <>
-    <button 
-      onClick={onClickPost}
-      onDoubleClick={openModal}
-      >
-      <div className="border rounded-4 p-2 mt-2 mb-2 text-start">
-        <div className="row g-1">
-
-          <div className="col-2">
-          </div>
-          
-          <div className="col-10">
+      <div 
+        className='col-12 text-break overflow-hidden pt-1'
+        style={{minHeight: '6rem', maxHeight: '11rem', textOverflow: 'revert-layer'}}>
+        <button 
+          onClick={onClickPost}
+          onDoubleClick={openModal}
+          style={{width: '100%', height: '100%'}}>
+          <div 
+            className="rounded-4 p-2 mt-2 mb-2 text-start "
+            >
             <div className="row g-1">
               
-              <div className="col-8">
-                Emilio Jared Espinosa
+              <div className="col-2 position-relative">
+                <FontAwesomeIcon 
+                  icon={faCircleUser}
+                  className='position-absolute top-50 start-50 translate-middle'
+                  size='2xl'/>
               </div>
               
-              <div className="col-4">
-                {post.date}
+              <div className="col-10">
+                <div className="row g-1">
+                  
+                  <div className="col-8">
+                    <b>{post.crime}</b>
+                  </div>
+                  
+                  <div className="col-4">
+                    {post.date}
+                  </div>
+
+                  <div className="col-12">
+                    {post.town}
+                  </div>
+
+                </div>
               </div>
 
-              <div className="col-12 border w-100">
-                {post.address}
+              <div className="col-12">
+                {post.description}
               </div>
 
             </div>
           </div>
-
-          <div className="col-12 ">
-            <p>{post.description}</p>
-          </div>
-
-        </div>
+        </button>
       </div>
-      </button>
     </>
   )
 }

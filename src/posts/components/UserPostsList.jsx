@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useAuthStore, usePostsStore } from "../../hooks";
 import { PostItem } from "./PostItem";
+import { UserPostItem } from "./UserPostItem";
 
 export const UserPostLists = () => {
 
@@ -13,15 +14,13 @@ export const UserPostLists = () => {
   return (
     <> 
       <div 
-        className="row ms-3 me-3 ms-md-5 me-md-5 border"
-        style={{overflow:'auto', height: '25rem'}}
+        className="row ms-3 me-3 ms-md-5 me-md-5 border g-3 mt-2"
+        style={{overflow:'auto', height: '30rem'}}
         >
         {
-          newPosts.map(post =>
-            (<PostItem 
-              key={post.description}
-              {...post}
-            />)
+          newPosts.map((post,index) =>
+            (<UserPostItem key={index}
+              {...post}/>)
           )
         }
       </div>

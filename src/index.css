@@ -15,8 +15,7 @@
   --suplement-alpha-color: rgba(198, 65, 145, 0.50);
 }
 
-/* Formulario */
-
+/* Form Auth style */
 .bg-gray{
   height: 3rem ;
 }
@@ -37,7 +36,7 @@ form button:active {
   box-shadow: 0 0 0 0.2rem var(--third-alpha-color) !important;
 }
 
-/* ################## Formulario Publicar ############# */
+/* Form Post Style */
 .needs-validation input:focus, 
 .needs-validation select:focus,
 .needs-validation textarea:focus {
@@ -58,9 +57,78 @@ form button:active {
   box-shadow: 0 0 0 0.2rem var(--suplement-color);
 }
 
+.checkbox:checked {
+  background-color: var(--first-color) !important;
+  border-color: transparent;
+}
+
+/* Buttons */
+.btn-form,
+.load-reports {
+  background-color: var(--first-color);
+  border-color: transparent;
+}
+
+.load-reports:hover,
+.btn-form:hover {
+  background-color: var(--first-color);
+  border-color: transparent;
+}
+
+.load-reports:focus,
+.btn-form:focus {
+  background-color: var(--first-color);
+  border: transparent;
+  ;
+}
+
+.btn-form:disabled{
+  border-color: transparent;
+}
+
+.load-reports:active {
+  background-color: var(--third-color) !important;
+  box-shadow: 0 0 0 0.2rem var(--third-alpha-color);
+}
+
+.delete-btn {
+  background-color: rgb(255, 76, 76) ;
+  border: transparent;
+}
+
+.delete-btn:hover {
+  background-color: rgb(253, 48, 48) ;
+  border: transparent;
+}
+
+.delete-btn:active {
+  background-color: rgb(253, 48, 48) !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 76, 76, 0.698);
+}
+
+/* captions */
 .form-unvalidated:focus {
   border: var(--suplement-color);
   box-shadow: 0 0 0 0.2rem var(--suplement-alpha-color);
+}
+
+/* data cards */
+.data-card:hover {
+  box-shadow: 2px 4px 10px gray;
+  border-color: black ;
+  border-width: 2px;
+}
+
+/* messasges */
+
+.message-status-ok {
+  background-color: rgba(111, 251, 183, 0.864) !important;
+  color: white;
+}
+
+.message-status-error {
+  background-color: rgb(255, 76, 76) !important;
+  color: white;
 }
 
 /* Modal */

@@ -27,19 +27,24 @@ export const Map = () => {
 
   return (
     <div 
-      className=''
-      style={{ position: 'relative', left: '0', top: '0', height: '100%', width: '100%' }}>
-      <GoogleMap
-        center={position}
-        zoom={16}
-        mapContainerStyle={{ width: '100%', height: '100%', borderRadius: '30px', }}
-        options={{
-          mapTypeControl: false,
-          fullscreenControl: false,
-        }}
-      >
-        <Marker position={position} />
-      </GoogleMap>
+      className=' position-relative'
+      style={{height: '100%'}}>
+      
+      <div
+      className='position-absolute top-50 start-50 translate-middle'
+      style={{height: '90%', maxHeight: '40rem',width: '100%'}}>
+         <GoogleMap
+          center={position}
+          zoom={16}
+          mapContainerStyle={{ width: '100%', height: '100%',  borderRadius: '30px',}}
+          options={{
+            mapTypeControl: false,
+            fullscreenControl: false,
+          }}
+        >
+        {/* <Marker position={position} /> */}
+        </GoogleMap>
+    </div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const formPost = {
   description: '',
   lat: 19.43, 
   lng: 99.13,
-  isAnonymus: false,
+  isAnonymus: true,
 }
 
 export const Form = () => {
@@ -37,32 +37,22 @@ export const Form = () => {
         lat,
         lng,
       };
-      // dispatch(addNewPost(updatedFormState));
-      // console.log("Ya se envio todo");
-      // onResetForm();
-      // const date = new Date(`${updatedFormState.date} ${updatedFormState.hour}`);
-      // updatedFormState.dateReport = date;
-      // delete updatedFormState.date;
-      // delete updatedFormState.hour;
-
-      console.log(updatedFormState)
       startSavingNewPost(updatedFormState);
       dispatch(addNewPost(updatedFormState));
-      console.log("Ya se envio todo");
       onResetForm();
     } catch (error) {
-      console.error('Ocurrio un error con el envio de formulario');
+      console.log(error);
     }
   };
   
-  const checkPosition = (event) => {
+  const checkPosition = async(event) => {
     event.preventDefault();
     // dispatch(setActivePost(formState));
   } 
 
   return (
             
-    <div className="border p-3 ">
+    <div className="border p-3 mb-2">
       <h2 className="text-center"><b>Datos del reporte</b></h2>
       <form onSubmit={onSubmit} className="row g-2 needs-validation" >
 
@@ -96,13 +86,13 @@ export const Form = () => {
             onBlur={onFocusChange}
             onChange={onInputChange}
             />
-          {(fS.addressFocus && fV.addressValid !== null) 
-            ? <div className='unvalidated ps-2 pt-2'>{ fV.addressValid }</div> 
-            : <></>}
+            {(fS.addressFocus && fV.addressValid !== null) 
+              ? <div className='unvalidated ps-2 pt-2'>{ fV.addressValid }</div> 
+              : <></>}
         </div>
         
             
-        <div className="col-md-6">
+        <div className="col-8">
           <label  className="form-label"><b>Delegación</b></label>
           <select  
             className={`form-control ${(fS.townFocus && fV.townValid)? 'form-unvalidated': ''}`}
@@ -116,18 +106,22 @@ export const Form = () => {
               )
             }
           </select>
-          {(fS.townFocus && fV.townValid !== null) 
-            ? <div className='unvalidated ps-2 pt-2'>{fV.townValid}</div> 
-            : <></>}
         </div>
 
-        <div className="col-md-6 ">
-          <button 
-            className="btn btn-primary"
-            onClick={checkPosition}>
-            Hola
-          </button>
+        <div className="col-4 position-relative">
+          <div className="position-absolute bottom-0 start-50 translate-middle-x">
+            <button 
+              className="btn btn-primary btn-form"
+              onClick={checkPosition}
+              style={{height: '2.5rem'}}>
+              Verificar
+            </button>
+          </div>
         </div>
+        
+        {(fS.townFocus && fV.townValid !== null) 
+          ? <div className='unvalidated ps-2 pt-2'>{fV.townValid}</div> 
+          : <></>}
 
         <div className="col-md-6">
           <label  className="form-label"><b>Fecha</b></label>
@@ -184,7 +178,7 @@ export const Form = () => {
         <div className="col-12">
           <div className="form-check">
             <input 
-              className="form-check-input" 
+              className="form-check-input checkbox" 
               type="checkbox"
               name='isAnonymus'
               checked={isAnonymus}
@@ -196,22 +190,34 @@ export const Form = () => {
           </div>
         </div>
 
-        <div className="col-12">
-          <button 
-            className="btn btn-primary" 
-            type="submit"
-            onClick={onSubmit}
-            disabled={!isFormValid}
-            >
-            Enviar
-          </button>
-          <button 
-            className="btn btn-primary"
-            onClick={onResetForm}>
-            Resetear
-          </button>
+        <div className="col-12 ">
+          <div className="row w-100"
+            style={{height: '2.5rem'}}>
+            <div className="col-3 offset-6 position-relative">
+              <div className='position-absolute top-50 start-50 translate-middle'>
+                <button 
+                  className="btn btn-primary btn-form" 
+                  type="submit"
+                  onClick={onSubmit}
+                  disabled={!isFormValid}
+                  style={{height: '2.5rem', width: '100%'}}
+                  >
+                  Enviar
+                </button>
+              </div>
+            </div>
+            <div className="col-3 position-relative">
+              <div className='position-absolute top-50 start-50 translate-middle'>
+                <button 
+                  className="btn btn-primary btn-form"
+                  onClick={onResetForm}
+                  style={{height: '2.5rem'}}>
+                  Resetear
+                </button>
+            </div>
+          </div>
         </div>
-
+      </div>
       </form>
     </div>
   )

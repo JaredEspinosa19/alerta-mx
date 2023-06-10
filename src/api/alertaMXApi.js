@@ -1,10 +1,10 @@
 import axios from "axios";
-// import { getEnvVariables } from "../helpers";
+import { getEnvVariables } from "../helpers";
 
 const {VITE_API_URL} = getEnvVariables();
 
 const alertaMXApi = axios.create({
-  baseURL: 'https://alerta-mx-app.herokuapp.com/api',
+  baseURL: VITE_API_URL,
 })
 
 

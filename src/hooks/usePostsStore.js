@@ -9,12 +9,17 @@ export const usePostsStore = () => {
   const dispatch = useDispatch();
 
 
-  const startSetActiveHomePost = (post) => {
+  const startSetActiveHomePost = (post) => { //Post homepagew
 
     dispatch(setActiveHomePost(post));
     dispatch(setMapPosition({lat: post.lat, lng: post.lng}));
   
   }
+
+  const startSetActiveUserPost = (post) => {
+    dispatch()
+  }
+
 
   const startSavingNewPost = async (post) => {
 

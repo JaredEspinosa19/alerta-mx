@@ -9,10 +9,10 @@ export const UserDataList = (user) => {
         <h2 className="fw-semibold">Datos del Usuario</h2>
         
         <div className="col-12 col-md-4">
-          <div class="card ">
-            <div class="card-body">
-              <h3 class="card-title fw-semibold">Nombre</h3>
-              <p class="card-text">
+          <div className="card data-card">
+            <div className="card-body">
+              <h3 className="card-title fw-semibold">Nombre</h3>
+              <p className="card-text">
                 {user?.name || 'Nombre Usuario'}
               </p>
             </div>
@@ -20,10 +20,10 @@ export const UserDataList = (user) => {
         </div>
 
         <div className="col-12 col-md-4">
-          <div class="card ">
-            <div class="card-body">
-              <h3 class="card-title fw-semibold">Email</h3>
-              <p class="card-text">
+          <div className="card data-card">
+            <div className="card-body">
+              <h3 className="card-title fw-semibold">Email</h3>
+              <p className="card-text">
                 {user?.email || 'Correo electrónico'}
               </p>
             </div>
@@ -31,10 +31,10 @@ export const UserDataList = (user) => {
         </div>
         
         <div className="col-12 col-md-4 ">
-          <div class="card ">
-            <div class="card-body">
-              <h3 class="card-title fw-semibold">Contraseña</h3>
-              <p class="card-text">
+          <div className="card data-card">
+            <div className="card-body">
+              <h3 className="card-title fw-semibold">Contraseña</h3>
+              <p className="card-text">
                 {user?.password || 'Contraseña del usuario'}
               </p>
             </div>

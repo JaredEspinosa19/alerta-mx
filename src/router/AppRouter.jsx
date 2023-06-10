@@ -4,7 +4,7 @@ import { AuthRoutes } from '../auth/routes/AuthRoutes';
 import { useAuthStore } from '../hooks';
 import { useEffect } from 'react';
 import { LoadingSpinner } from '../posts/components';
-import { getEnvVariables } from '../helpers';
+
 
 export const AppRouter = () => {
   
@@ -14,16 +14,12 @@ export const AppRouter = () => {
     checkAuthToken();
   }, [])
 
-  // console.log(getEnvVariables())
-  // getEnvVariables()
-  
   if (status === 'checking') {
     return (
       <LoadingSpinner />
     )
   }
-  
-  // const status = 'authenticated';
+
   return (
 
     <Routes>
@@ -35,7 +31,6 @@ export const AppRouter = () => {
       }
 
       <Route path='/*' element={<Navigate to='/auth/login' />} />
-      {/* <Route path='/*' element={<Navigate to='/auth/login' />} /> */}
 
     </Routes>
   )

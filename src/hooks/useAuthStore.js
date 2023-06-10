@@ -32,7 +32,8 @@ export const useAuthStore = () => {
       );
 
     } catch (error) {
-      dispatch(onLogout('Credenciales incorrectas'));
+      msg = error.response.data.message
+      dispatch(onLogout());
       setTimeout(() => {
         dispatch(clearErrorMessage());
       }, 3000);     

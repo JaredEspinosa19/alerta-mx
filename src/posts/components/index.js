@@ -7,3 +7,5 @@ export * from './Map';
 export * from './LoadingSpinner';
 export * from './UserDataList';
 export * from './UserPostsList'
+export * from './UserPostItem';
+export * from './ConfirmationModal';

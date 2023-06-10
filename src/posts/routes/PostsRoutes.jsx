@@ -15,7 +15,6 @@ export const PostsRoutes = () => {
   return (
     <>
       <NavBar />
-      
       <Routes>
 
         <Route path='home' element={<HomePage />} />
@@ -26,7 +25,6 @@ export const PostsRoutes = () => {
         <Route path='/*' element={<Navigate to={'/home'} />} />
       
       </Routes>
-
     </>
   )
 }

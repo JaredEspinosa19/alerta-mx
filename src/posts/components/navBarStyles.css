@@ -81,26 +81,11 @@ a:hover {
   box-shadow: 0 0 0 0.25rem var(--first-alpha-color);
 }
  
-.container button {
-  background-color: var(--first-color) ;
-  border: var(--first-color);
-}
-
-.container button:hover {
-  background-color: #00bfb2cf ;
-  border: #00bfb2cf;
-}
-
-.container button:focus {
-  background-color: #00bfb2cf ;
-  border: #00bfb2cf;
-  box-shadow: 0 0 0 0.25rem var(--first-alpha-color);
-}
 
 
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
-  
+   
  }
 
 /* // Medium devices (tablets, 768px and up) */
@@ -113,6 +98,7 @@ a:hover {
   .nav-item:hover{
     background-color: transparent;
   }
+
  }
 
 /* // X-Large devices (large desktops, 1200px and up) */
@@ -122,5 +108,5 @@ a:hover {
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
-  
+
  }
