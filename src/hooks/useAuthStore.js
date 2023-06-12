@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import alertaMXApi from "../api/alertaMXApi";
-import { clearErrorMessage, onChecking, onLogIn, onLogout } from "../store";
+import { clearErrorMessage, onChecking, onLogIn, onLogout, setErrorMessage } from "../store";
 
 
 export const useAuthStore = () => {
@@ -20,20 +20,22 @@ export const useAuthStore = () => {
         email,
         password
       });
-      console.log(data);
+
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
+      
       dispatch(onLogIn({
-        email,
-        password,
+        email: data.email,
         name: data.name,    
         uid: data.uid,
         })
       );
 
+
     } catch (error) {
-      msg = error.response.data.message
-      dispatch(onLogout());
+      let msg = error.response.data.msg
+      // console.log(msg);
+      dispatch(onLogout({status: false, msg}));
       setTimeout(() => {
         dispatch(clearErrorMessage());
       }, 3000);     
@@ -51,19 +53,19 @@ export const useAuthStore = () => {
         email,
         password
       });
-      // console.log(data);
+
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
       dispatch(onLogIn({
-        email,
-        password,
+        email: data.email,
         name: data.name,
         uid: data.uid,
         })
       );
 
     } catch (error) {
-      dispatch(onLogout('Credenciales incorrectas'));
+      let msg = error.response.data.msg;
+      dispatch(onLogout({status: false, msg}));
       setTimeout(() => {
         dispatch(clearErrorMessage());
       }, 3000);
@@ -71,8 +73,6 @@ export const useAuthStore = () => {
   }
 
   const changePassword = async({email, password}) => {
-    
-    dispatch(onChecking());
 
     try {
     
@@ -80,11 +80,18 @@ export const useAuthStore = () => {
         email,
         password
       });
-
-      // console.log(data);
+      
+      console.log(data);
+      let msg = data.msg
+      dispatch(setErrorMessage({status: true, msg}));
+      setTimeout(() => {
+        dispatch(clearErrorMessage());
+      }, 3000);  
 
     } catch (error) {
-      dispatch(onLogout('Credenciales incorrectas'));
+      let msg = error.response.data.msg;
+      // dispatch(setErrorMessage({status: true, msg}));      
+      dispatch(onLogout({status: false, msg}));
       setTimeout(() => {
         dispatch(clearErrorMessage());
       }, 3000);
@@ -94,19 +101,21 @@ export const useAuthStore = () => {
   const checkAuthToken = async() => {
     
     const token = localStorage.getItem('token');
-    // console.log(token, 'token que se envia');
   
     if(!token) return dispatch(onLogout());
 
     try {
-      const {data} = await alertaMXApi.get('/auth/renew');     
+
+      const {data} = await alertaMXApi.get('/auth/renew');   
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      // console.log(data, 'datos que recibo');
-      dispatch(onLogIn({name: data.name, uid: data.uid}));
+      dispatch(onLogIn({name: data.name, uid: data.uid, email: data.email}));
+    
     } catch (error) {
+     
       localStorage.clear();
       dispatch(onLogout());
+    
     }
   }
 

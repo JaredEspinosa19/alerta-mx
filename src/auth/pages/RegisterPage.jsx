@@ -14,7 +14,7 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
   const { name, email, password, onInputChange, 
           isFormValid, nameValid, emailValid, passwordValid, 
-          nameFocus, emailFocus, passwordFocus, onFocusChange } = useForm(registerForm, authValidations);
+          nameFocus, emailFocus, passwordFocus, onFocusChange,  } = useForm(registerForm, authValidations);
   const { startSignUp } = useAuthStore();
 
   const onRegisterSubmit = (event) => {
@@ -37,7 +37,7 @@ export const RegisterPage = () => {
             className="form-label fs-5">Nombre</label>
           <input                      
             type="text" 
-            className={`form-control rounded-pill p-3 bg-gray ${(nameFocus && nameValid)? 'form-unvalidated': ''}`} 
+            className={`form-control  p-3 bg-white ${(nameFocus && nameValid)? 'form-unvalidated': ''}`} 
             placeholder="Introduzca su nombre"
             name='name'
             value={name}
@@ -45,13 +45,16 @@ export const RegisterPage = () => {
             onChange={onInputChange}
             required />
         </div>
+        {(nameFocus && nameValid!== null) 
+              ? <div className='unvalidated ps-2 pt-2'>{ nameValid }</div> 
+              : <></>}
 
         <div className="col-12">
           <label 
             className="form-label fs-5">Correo</label>
           <input 
             type="email" 
-            className={`form-control rounded-pill p-3 bg-gray ${(emailFocus && emailValid)? 'form-unvalidated': ''}`} 
+            className={`form-control p-3 bg-white ${(emailFocus && emailValid)? 'form-unvalidated': ''}`} 
             placeholder="Introduzca su correo electrónico"
             name='email'
             value={email}
@@ -59,13 +62,16 @@ export const RegisterPage = () => {
             onChange={onInputChange}
             required />
         </div>
+        {(emailFocus && emailValid !== null) 
+              ? <div className='unvalidated ps-2 pt-2'>{ emailValid }</div> 
+              : <></>}
 
         <div className="col-12">
           <label 
             className="form-label fs-5">Password</label>
           <input 
             type="password" 
-            className={`form-control rounded-pill p-3 bg-gray ${(passwordFocus && passwordValid)? 'form-unvalidated': ''}`}  
+            className={`form-control p-3 bg-white ${(passwordFocus && passwordValid)? 'form-unvalidated': ''}`}  
             placeholder="Introduzca su contraseña"
             name='password'
             value={password}
@@ -76,13 +82,16 @@ export const RegisterPage = () => {
               You must agree before submitting.
             </div>
         </div>
+        {(passwordFocus && passwordValid!== null) 
+              ? <div className='unvalidated ps-2 pt-2 '>{ passwordValid }</div> 
+              : <></>}
 
         <div className="col-12 d-grid gap-2 mx-auto mt-4 mb-4">
           <button 
             type="submit"
             disabled={!isFormValid}
             onClick={onRegisterSubmit} 
-            className="btn btn-primary rounded-pill p-2 fs-5">
+            className="btn btn-auth  p-2 fs-5">
             Regístrarse
           </button>
         </div>
@@ -90,7 +99,7 @@ export const RegisterPage = () => {
 
       <div className="col-12 text-center">
         <p>¿Ya tienes cuenta?
-          <NavLink className={'class="link-offset-1 "'} to={'/auth/login'}>
+          <NavLink className={'link-offset-1 link-main fw-semibold'} to={'/auth/login'}>
             Iniciar Sesión
           </NavLink>
         </p>

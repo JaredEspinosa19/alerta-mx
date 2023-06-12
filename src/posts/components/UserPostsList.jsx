@@ -9,12 +9,12 @@ export const UserPostLists = () => {
   const {posts} = usePostsStore();
 
   const newPosts = useMemo(() => posts.filter(
-    (post) => post.user.id === user.id ), [posts]);
+    (post) => post.user._id === user.uid ), [posts]);
   
   return (
     <> 
       <div 
-        className="row ms-3 me-3 ms-md-5 me-md-5 border g-3 mt-2"
+        className="row g-1 mt-2 vertical-scroll"
         style={{overflow:'auto', height: '30rem'}}
         >
         {

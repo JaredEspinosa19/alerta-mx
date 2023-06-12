@@ -22,22 +22,22 @@ export const PostModal = () => {
   const {activeHomePost} = usePostsStore();
 
   const [post, setPost] = useState({});
-  const {isModalOpen, closeModal} = useUiStore();
+  const {isHomeModalOpen, closeHomeModal} = useUiStore();
 
   useEffect(() => {
     setPost(activeHomePost);
   }, [activeHomePost])
   
   const onCloseModal = () => {
-    closeModal();
+    closeHomeModal();
   }
 
-  if (isModalOpen === false) {
+  if (isHomeModalOpen === false) {
     return(<Modal
       className={'mt-4 modal'}
       overlayClassName={'modal-fondo'}
       closeTimeoutMS={200}
-      isOpen={isModalOpen}
+      isOpen={isHomeModalOpen}
       onRequestClose={onCloseModal}
       style={customStyles}
     >
@@ -50,7 +50,7 @@ export const PostModal = () => {
       className={'mt-4 modal'}
       overlayClassName={'modal-fondo'}
       closeTimeoutMS={200}
-      isOpen={isModalOpen}
+      isOpen={isHomeModalOpen}
       onRequestClose={onCloseModal}
       style={customStyles}
     >

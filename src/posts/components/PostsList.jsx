@@ -17,7 +17,7 @@ export const PostsList = () => {
         className="row g-1"
         style={{height: '100%'}} >
         
-        <div className='col-12 text-center'>
+        <div className='col-12 pt-3 text-center'>
           <h2 className="fw-semibold">Lista de Reportes</h2>
         </div>
         
@@ -32,13 +32,13 @@ export const PostsList = () => {
         </div>
 
         <div 
-          className='col-12 overflow-y-auto'
+          className='col-12 mt-3 overflow-y-auto vertical-scroll'
           style={{height: '80%'}}>
-          <div className="row" >
+          <div className="row g-1" >
             {
-              newPosts.map(post =>
+              newPosts.map((post, index) =>
                 (<PostItem 
-                  key={post.description}
+                  key={index}
                   {...post}
                   />)
               )

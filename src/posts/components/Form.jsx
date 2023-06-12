@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-import { addNewPost, setMapPosition } from '../../store/posts/postsSlice';
 import { useForm, usePostsStore } from '../../hooks';
 import { formValidations, crimeOptions, townOptions, getCoordinates } from '../../helpers';
 
@@ -11,43 +9,31 @@ const formPost = {
   hour: '',
   description: '',
   lat: 19.43, 
-  lng: 99.13,
+  lng: -99.13,
   isAnonymus: true,
 }
 
 export const Form = () => {
 
-  const dispatch = useDispatch()  
   const { crime, address, town, date, description, hour, isAnonymus,
           formState, onInputChange, onResetForm,
           formValidation: fV, isFormValid, formStatus: fS, onFocusChange } = useForm(formPost, formValidations);
-  const {startSavingNewPost} = usePostsStore();
+  const {startSavingNewPost, setNewMapPosition} = usePostsStore();
 
   const onSubmit = async (event) => {
     event.preventDefault();
 
     if (!isFormValid) return;
   
-    try {
-      const { address, town } = formState;
-      const { lat, lng } = await getCoordinates({ address, town });
-      console.log(lat, lng);
-      const updatedFormState = {
-        ...formState,
-        lat,
-        lng,
-      };
-      startSavingNewPost(updatedFormState);
-      dispatch(addNewPost(updatedFormState));
-      onResetForm();
-    } catch (error) {
-      console.log(error);
-    }
+    startSavingNewPost(formState)
+    onResetForm();
+
   };
   
-  const checkPosition = async(event) => {
+  const checkPosition = (event) => {
     event.preventDefault();
-    // dispatch(setActivePost(formState));
+    const { address, town } = formState;
+    setNewMapPosition({address, town});
   } 
 
   return (
@@ -193,7 +179,7 @@ export const Form = () => {
         <div className="col-12 ">
           <div className="row w-100"
             style={{height: '2.5rem'}}>
-            <div className="col-3 offset-6 position-relative">
+            <div className="col-md-3 col-4 offset-md-6 offset-4 position-relative">
               <div className='position-absolute top-50 start-50 translate-middle'>
                 <button 
                   className="btn btn-primary btn-form" 
@@ -206,7 +192,7 @@ export const Form = () => {
                 </button>
               </div>
             </div>
-            <div className="col-3 position-relative">
+            <div className="col-md-3 col-4 position-relative">
               <div className='position-absolute top-50 start-50 translate-middle'>
                 <button 
                   className="btn btn-primary btn-form"

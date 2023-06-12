@@ -35,7 +35,7 @@ export const UserDataList = (user) => {
             <div className="card-body">
               <h3 className="card-title fw-semibold">Contraseña</h3>
               <p className="card-text">
-                {user?.password || 'Contraseña del usuario'}
+                {user?.password || '**********'}
               </p>
             </div>
           </div>

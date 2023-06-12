@@ -8,7 +8,7 @@ export const HomePage = () => {
   return (
     <>
       <div 
-        className="container pt-1">
+        className="container pt-2">
         <div className="row">
 
           <div className="col-12 col-lg-6">
@@ -16,7 +16,7 @@ export const HomePage = () => {
           </div>
 
           <div 
-            className="col-12 col-lg-6  mb-1 border"
+            className="col-12 col-lg-6 mb-2 "
             style={{ height: '38rem'}}>           
             <PostsList />
           </div>

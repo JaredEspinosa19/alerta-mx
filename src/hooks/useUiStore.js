@@ -1,23 +1,35 @@
 import { useDispatch, useSelector } from "react-redux"
-import { onOpenModal, onCloseModal } from "../store/ui/uiSlice";
+import { onOpenHomeModal, onCloseHomeModal, onOpenUserModal, onCloseUserModal } from "../store/ui/uiSlice";
 
 
 export const useUiStore = () => {
 
   const dispatch = useDispatch();
-  const {isModalOpen} = useSelector(state => state.ui);
+  const {isHomeModalOpen, isUserModalOpen} = useSelector(state => state.ui);
 
-  const openModal = () => {
-    dispatch(onOpenModal());
+  const openHomeModal = () => {
+    dispatch(onOpenHomeModal());
   }
 
-  const closeModal = () => {
-    dispatch(onCloseModal()); 
+  const closeHomeModal = () => {
+    dispatch(onCloseHomeModal()); 
+  }
+
+  const openUserModal = () => {
+    dispatch(onOpenUserModal());
+  }
+
+  const closeUserModal = () => {
+    dispatch(onCloseUserModal());
   }
 
   return {
-    isModalOpen,
-    openModal,
-    closeModal,
+    isHomeModalOpen,
+    isUserModalOpen,
+
+    openHomeModal,
+    closeHomeModal,
+    openUserModal,
+    closeUserModal,
   }
 }

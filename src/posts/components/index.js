@@ -9,3 +9,4 @@ export * from './UserDataList';
 export * from './UserPostsList'
 export * from './UserPostItem';
 export * from './ConfirmationModal';
+export * from './UserPagePostItem';

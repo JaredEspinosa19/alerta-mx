@@ -1,4 +1,3 @@
-import './navBarStyles.css';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAuthStore } from '../../hooks';
@@ -16,7 +15,7 @@ export const NavBar = () => {
       <div className="container">
         
         <NavLink className="navbar-brand ms-lg-5" to='/home'>
-          <img src="../../../assets/AlertaMx.svg" alt="Alerta-Mx" />
+          <img src="../../../AlertaMx.svg" alt="Alerta-Mx" />
         </NavLink>
       
         <button 
@@ -45,17 +44,11 @@ export const NavBar = () => {
               </NavLink>
             </li>
             
-{/* 
-            <li className="nav-item">
-              <NavLink className={ ({isActive}) => `nav-link ${isActive ? 'active':''}`} to='/instituciones'>
-                Instituciones
-              </NavLink>
-            </li> */}
 
             <li className="nav-item ">
               <NavLink className={ ({isActive}) => ` align-items-center nav-link ${isActive ? 'active':''}`} 
                 to='/datosUsuario'>
-                {'hola'}
+                Mi Perfil
               </NavLink>
             </li>
 

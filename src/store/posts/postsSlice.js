@@ -6,6 +6,7 @@ export const postsSlice = createSlice({
   name: 'posts',
   initialState: {
    isSaving: false,
+   isDeleting: false,
    messageSaved: undefined,
    posts: [],
    activeHomePost: null,
@@ -20,15 +21,22 @@ export const postsSlice = createSlice({
     savingNewPost: (state) => {
       state.isSaving = true;
     },
+    deletingPost: (state) => {
+      state.isDeleting = true;
+    },
     addNewPost: (state, action) => { //Agregar una nota
-      state.posts.push(action.payload);
+      state.posts.unshift(action.payload);
       state.isSaving = false;
     },
     setActiveHomePost: (state, action) => { //La nota que se seleciona es la activa en el area del home
       state.activeHomePost = action.payload;
     },
-    setActiveUserPost: (state, action) => { //La nota que se seleciona es la activa en el area del home
+    setActiveUserPost: (state, action) => { //La nota que se seleciona es la activa en la pagina del usuario
       state.activeUserPost = action.payload;
+    },
+    deletePost: (state) =>{//Borra el post
+      state.posts = state.posts.filter(post => post.id !== state.activeUserPost.id)
+      state.activeUserPost = null;      
     },
     setPosts: (state, action) => { //Se guardan las notas traídas mediante la request
       state.posts = action.payload;
@@ -41,7 +49,9 @@ export const postsSlice = createSlice({
 
 export const { 
   savingNewPost,
+  deletingPost,
   addNewPost,
+  deletePost,
   setActiveHomePost,
   setActiveUserPost,
   setPosts,

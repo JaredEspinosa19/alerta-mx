@@ -1,4 +1,4 @@
-import { UserDataList, UserPostLists } from "../components";
+import { ConfirmationModal, UserDataList, UserPostLists } from "../components";
 import { useAuthStore } from "../../hooks";
 
 export const UserData = () => {
@@ -20,6 +20,8 @@ export const UserData = () => {
           <UserPostLists />
         </div>
       </div>
+
+      <ConfirmationModal />
     </>
   )
 }

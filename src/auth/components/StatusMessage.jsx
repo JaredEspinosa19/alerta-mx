@@ -1,13 +1,17 @@
+import { useAuthStore } from "../../hooks"
 
-export const StatusMessage = ({message='Hola', ok=true}) => {
+export const StatusMessage = () => {
+
+  const {errorMessage} = useAuthStore();
+
   return (
-    <div 
-      className="position-absolute bottom-0 start-50 translate-middle-x mb-5">
+    <div className="position-absolute top-100 start-50 translate-middle mt-4">
       <div 
-        className="shadow-sm p-3 mb-5 bg-body-tertiary rounded-4 message-status-error fw-semibold text-center"
-        style={{width: '14rem', 
-                height: '4rem'}}>
-          {message}
+        className={`shadow-sm mb-5 pt-1 rounded-4 fw-semibold text-center ${errorMessage.status === true ? 'message-status-ok': 'message-status-error'}`}
+        style={{width: '14rem', height: '4rem'}}>
+          {
+            errorMessage.msg
+          }
       </div>
     </div>
   )

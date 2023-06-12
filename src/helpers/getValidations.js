@@ -1,9 +1,9 @@
 import { checkValidateDate, crimeOptions, townOptions } from "./"
 
 export const authValidations = {
-  name : [(value) => value.length > 8, 'Escriba un nombre válido'],
-  email: [(value) => value.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/), 'No existe el correo'],
-  password: [(value) => value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/), 'Escriba una contraseña válida'],
+  name : [(value) => value.length > 8, 'Escriba un nombre real.'],
+  email: [(value) => value.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/), 'Escriba un correo existente.'],
+  password: [(value) => value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/), 'La contraseña debe tener al menos 8 carácteres con una mayúscula, una minúscula, un número y un carácter especial.'],
 }
 
 export const formValidations = {
