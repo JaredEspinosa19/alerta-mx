@@ -55,7 +55,7 @@ export const ResetPasswordPage = () => {
           <input 
             type="text" 
             className={`form-control  p-3 bg-white ${(passwordFocus && passwordValid)? 'form-unvalidated': ''}`} 
-            placeholder="Introduce tu correo electrónico"
+            placeholder="Introduzca su nueva contraseña"
             name='password'
             value={password}
             onBlur={onFocusChange}

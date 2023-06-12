@@ -15,7 +15,7 @@ export const NavBar = () => {
       <div className="container">
         
         <NavLink className="navbar-brand ms-lg-5" to='/home'>
-          <img src="../../../AlertaMx.svg" alt="Alerta-Mx" />
+          <img src="../../../AlertaMx.svg" alt="Alerta-MX" />
         </NavLink>
       
         <button 
