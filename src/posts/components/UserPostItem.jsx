@@ -5,7 +5,7 @@ import { UserPagePostItem } from "./"
 
 export const UserPostItem = (post) => {
 
-  const {startSetActiveUserPost} = usePostsStore();
+  const {startSetActiveUserPost, isDeleting} = usePostsStore();
   const {openUserModal} = useUiStore();
   
   const onClick = (event) => {
@@ -24,6 +24,7 @@ export const UserPostItem = (post) => {
               <button
                 className="btn btn-primary delete-btn"
                 onClick={onClick}
+                disabled={isDeleting}
                 >
                 <FontAwesomeIcon 
                   icon={faXmark}

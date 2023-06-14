@@ -24,6 +24,9 @@ export const postsSlice = createSlice({
     deletingPost: (state) => {
       state.isDeleting = true;
     },
+    stopDeletingPost: (state) => {
+      state.isDeleting = false;
+    },
     addNewPost: (state, action) => { //Agregar una nota
       state.posts.unshift(action.payload);
       state.isSaving = false;
@@ -50,6 +53,7 @@ export const postsSlice = createSlice({
 export const { 
   savingNewPost,
   deletingPost,
+  stopDeletingPost,
   addNewPost,
   deletePost,
   setActiveHomePost,

@@ -107,21 +107,43 @@ form button:active {
   box-shadow: 0 0 0 0.2rem var(--third-alpha-color);
 }
 
+.confirm-btn,
 .delete-btn {
   background-color: rgb(255, 76, 76) ;
   border: transparent;
 }
 
+.confirm-btn:hover,
 .delete-btn:hover {
   background-color: rgb(253, 48, 48) ;
   border: transparent;
 }
-
+.confirm-btn:active,
 .delete-btn:active {
   background-color: rgb(253, 48, 48) !important;
   box-shadow: 0 0 0 0.2rem rgba(255, 76, 76, 0.698);
 }
 
+.confirm-btn:disabled,
+.delete-btn:disabled {
+  background-color: rgb(253, 48, 48) !important;
+  border: transparent;
+}
+
+.cancel-btn {
+  background-color: gray;
+  border: transparent;
+}
+
+.cancel-btn:hover {
+  background-color: rgb(116, 116, 116) ;
+  border: transparent;
+}
+
+.cancel-btn:active {
+  background-color: rgb(116, 116, 116) !important ;
+  border: transparent;
+}
 /* links */
 .link-main {
   color: var(--second-alpha-color);

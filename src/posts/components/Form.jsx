@@ -99,6 +99,7 @@ export const Form = () => {
             <button 
               className="btn btn-primary btn-form"
               onClick={checkPosition}
+              disabled={fV.addressValid || fV.townValid}
               style={{height: '2.5rem'}}>
               Verificar
             </button>

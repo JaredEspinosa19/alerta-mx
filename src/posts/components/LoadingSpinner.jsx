@@ -10,7 +10,7 @@ export const LoadingSpinner = () => {
           style={{height: '7.5rem', width: '7.5rem',  color: '#00bfb2cf'}}>
         </div>
 
-        <img src="../../../public/AlertaMx.svg" 
+        <img src="../../../AlertaMx.svg" 
             alt="Alerta-Mx"
             className=' position-absolute top-50 start-50 translate-middle'  
             style={{height: '7rem', width: 'auto'}} />

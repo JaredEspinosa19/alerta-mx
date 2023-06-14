@@ -6,7 +6,7 @@ import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 export const PostItem = (post) => {
 
   const { openHomeModal } = useUiStore();
-  const {startSetActiveHomePost} = usePostsStore();
+  const {startSetActiveHomePost,} = usePostsStore();
 
   const onClickPost = () => {
     startSetActiveHomePost(post);

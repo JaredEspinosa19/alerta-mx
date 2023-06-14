@@ -56,7 +56,7 @@ export const ConfirmationModal = () => {
             <div className='col-6 position-relative'>
               <div className='position-absolute top-50 start-50 translate-middle'>
                 <button 
-                  className='btn btn-primary'
+                  className='btn btn-primary cancel-btn'
                   style={{width: '8rem'}}
                   onClick={cancelAction}>
                   Cancelar
@@ -67,7 +67,7 @@ export const ConfirmationModal = () => {
             <div className='col-6 position-relative'>
               <div className='position-absolute top-50 start-50 translate-middle'>
                 <button 
-                  className='btn btn-primary'
+                  className='btn btn-primary confirm-btn'
                   style={{width: '8rem'}}
                   onClick={confirmAction}>
                   Confirmar

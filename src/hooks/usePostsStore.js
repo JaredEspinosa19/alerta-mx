@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
 import alertaMXApi from "../api/alertaMXApi";
-import { setPosts, savingNewPost, setActiveHomePost, setMapPosition, setActiveUserPost, deletingPost, deletePost, addNewPost } from "../store";
+import { setPosts, savingNewPost, setActiveHomePost, setMapPosition, setActiveUserPost, deletingPost, stopDeletingPost, deletePost, addNewPost } from "../store";
 import { getCoordinates } from "../helpers";
 
 
 export const usePostsStore = () => {
 
   const { user } = useSelector(state => state.auth);
-  const { posts, activeHomePost, activeUserPost } = useSelector(state => state.posts);
+  const { posts, activeHomePost, activeUserPost, isDeleting } = useSelector(state => state.posts);
   const dispatch = useDispatch();
 
   const startSetActiveHomePost = (post) => { //Post homepage
@@ -61,18 +61,22 @@ export const usePostsStore = () => {
 
   const startDeletePost = async() => {
     
+    dispatch(deletingPost());
+
     const {id} = activeUserPost;
+    
     try {
 
       const {data} = await alertaMXApi.delete(`/posts/${id}`,);
       console.log(data, 'hola');
       dispatch(deletePost());
-
+      dispatch(stopDeletingPost());
     } catch (error) {
 
       console.log('Error elimininado el evento');
       console.log(error);
-      
+
+      dispatch(stopDeletingPost());
     }
 
   }
@@ -87,6 +91,7 @@ export const usePostsStore = () => {
     posts,
     activeHomePost,
     activeUserPost,
+    isDeleting,
 
     //
     startSetActiveHomePost,
