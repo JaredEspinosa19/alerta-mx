@@ -43,7 +43,7 @@ export const Form = () => {
       <form onSubmit={onSubmit} className="row g-2 needs-validation" >
 
         <div className="col-12">
-          <label  className="form-label"><b>Tipo de Robo</b></label>
+          <label  className="form-label"><b>Tipo de delito</b></label>
           <select  
             className={`form-control ${(fS.crimeFocus && fV.crimeValid)? 'form-unvalidated': ''}`}
             name={'crime'}

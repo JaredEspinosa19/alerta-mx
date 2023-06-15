@@ -1,8 +1,12 @@
 export const crimeOptions = [
   'Escoja un tipo de delito',
-  'Robo 1',
-  'Robo 2',
-  'Robo 3',
+  'Asalto',
+  'Robo a casa habitación',
+  'Robo a auto',
+  'Robo a comercio',
+  'Intento de asalto',
+  'Amenzas',
+
 ]
 
 export const townOptions = [
